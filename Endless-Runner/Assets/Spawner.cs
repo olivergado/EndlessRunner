@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeToNextSpawn + Random.Range(minSpawnTime, maxSpawnTime);
+        timeToNextSpawn = Random.Range(minSpawnTime, maxSpawnTime);
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     {
         timeSinceLastSpawn = timeSinceLastSpawn + Time.deltaTime;
 
-        if(timeSinceLastSpawn >timeToNextSpawn)
+        if (timeSinceLastSpawn > timeToNextSpawn)
         {
             int selection = Random.Range(0, objectsToSpawn.Length);
 

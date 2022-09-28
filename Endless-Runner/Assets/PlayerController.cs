@@ -32,5 +32,14 @@ public class PlayerController : MonoBehaviour
         {
             playerObject.AddForce(new Vector2(0.0f, jumpForce));
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            maxSpeed = 10.0f;
+        }else
+        {
+            maxSpeed = 5.0f;
+        }
+
     }
 }
