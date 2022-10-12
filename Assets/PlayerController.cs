@@ -7,6 +7,13 @@ public class PlayerController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask whatIsGround;
 
+    public AudioClip jump;
+    public AudioClip backgroundMusic;
+
+    public AudioSource sfxPlayer;
+    public AudioSource musicPlayer;
+
+
     float maxSpeed = 5.0f;
     bool isOnGround = false;
 
@@ -48,6 +55,11 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(movementValueX));
         anim.SetBool("IsOnGround", isOnGround);
+
+        musicPlayer.clip = backgroundMusic;
+        musicPlayer.loop = true;
+        musicPlayer.Play();
+        sfxPlayer.PlayOneShot(jump);
 
     }
 }
