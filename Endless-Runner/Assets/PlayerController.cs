@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce = 100.0f;
 
+    Animator anim;
+
     Rigidbody2D playerObject;
     // Start is called before the first frame update
     void Start()
     {
         playerObject = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
         //float movementValueX = Input.GetAxis("Horizontal");
         float movementValueX = 1.0f;
 
+        playerObject.velocity = new Vector2(movementValueX * maxSpeed, playerObject.velocity.y);
         playerObject.velocity = new Vector2(movementValueX * maxSpeed, playerObject.velocity.y);
 
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsGround);
@@ -41,6 +45,9 @@ public class PlayerController : MonoBehaviour
         {
             maxSpeed = 5.0f;
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(movementValueX));
+        anim.SetBool("IsOnGround", isOnGround);
 
     }
 }
