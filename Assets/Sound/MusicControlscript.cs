@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicControlscript : MonoBehaviour
 
 {
-    public static MusicControlScript instance; // Creates a static varible for a MusicControlScript instance
+    public static MusicControlscript instance; // Creates a static varible for a MusicControlScript instance
 
     private void Awake() // Runs before void Start()
     {
