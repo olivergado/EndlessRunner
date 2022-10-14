@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -61,5 +62,13 @@ public class PlayerController : MonoBehaviour
         musicPlayer.Play();
         sfxPlayer.PlayOneShot(jump);
 
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.CompareTag ("Death"))
+        {
+            SceneManager.LoadScene("Deathscreen");
+        }
     }
 }

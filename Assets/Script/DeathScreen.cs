@@ -7,7 +7,7 @@ public class DeathScreen : MonoBehaviour
 {
     public void LoadGame()
     {
-        SceneManager.LoadScene("Runner");
+        SceneManager.LoadScene("Menu");
     }
     // Start is called before the first frame update
     void Start()
